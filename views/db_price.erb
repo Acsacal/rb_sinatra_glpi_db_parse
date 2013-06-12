@@ -22,5 +22,10 @@
 		<th>Name</th>
 		<th>Price in $</th>
 	</tr>
-	
+	<% @item_price_print.each do |i| %>
+	<tr>
+		<td><%= i.name %></td>
+		<td><%= i.price %></td>
+	</tr>
+	<% end %>
 </table>
