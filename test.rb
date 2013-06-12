@@ -148,22 +148,19 @@ end
 
 DataMapper.setup(:external, "sqlite3://#{Dir.pwd}/db/price.sqlite3")
 
-#DataMapper.repository(:external) do
-	class Price
-    	include DataMapper::Resource
+class Price
+   	include DataMapper::Resource
 
-    	def self.default_repository_name
-    		:external
-       	end
+   	def self.default_repository_name
+   		:external
+   	end
 
-    	property :id,					Serial
-    	property :name, 				String, :required => true
-    	property :price, 				Integer, :required => true
-	end
+   	property :id,					Serial
+   	property :name, 				String, :required => true
+   	property :price, 				Integer, :required => true
+end
 
-#	Price.finalize
-	Price.auto_upgrade!
-#end
+Price.auto_upgrade!
 
 get '/' do
 	@glpi_comp = GlpiComputers.all(:computertypes_id => 2, :states_id => 1, :order => [ :date_mod.desc ], :contact.not => ['conference', 'For home use', 'room2', 'room8', 'ConfRoom4'])
@@ -176,18 +173,11 @@ get '/new' do
 end
 
 get '/db_price' do
-	#DataMapper.repository(:external) do
-		@item_price_print = Price.all #(:repository => repository(:external))
-		@item_price_print.each do |i|
-			p i.name
-		end
-	#end
+	@item_price_print = Price.all
 	erb :db_price
 end
 
 post '/db_update' do
-	#DataMapper.repository(:external) do
-		@item = Price.create(:name => params[:name], :price => params[:price].to_i)
-	#end
+	@item = Price.create(:name => params[:name], :price => params[:price].to_i)
   	redirect '/db_price'
 end
