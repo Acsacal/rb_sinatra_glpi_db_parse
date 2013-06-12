@@ -1,0 +1,67 @@
+
+<p>"Сегодня <%= Time.now.strftime("%Y-%d-%m %H:%M:%S") %>"</p>
+
+<table>
+	<tr>
+		<th>id</th>
+		<th>name</th>
+		<th>contact</th>
+		<th>date_mod</th>
+		<th>users_id</th>
+		<th>users</th>
+		<th>groups_id</th>
+		<th>groups</th>
+		<th>locations_id</th>
+		<th>locations</th>
+		<th>hdd_size</th>
+		<th>ram_size</th>
+		<th>mobo_id</th>
+		<th>mobo_name</th>
+		<th>cpu_id</th>
+		<th>cpu_name</th>
+		<th>display</th>
+		<th>display #2</th>
+	</tr>
+<% @glpi_comp.each do |comp| %>
+<tr>
+<td><%= comp.id %></td>
+<td><%= comp.name %></td>
+<td><%= comp.contact %></td>
+<td><%= comp.date_mod.strftime("%Y-%d-%m %H:%M:%S") %></td>
+<td><%= comp.users_id.to_s %></td>
+<% GlpiComputers.all( :name => comp.name).GlpiUsers.each do |user| %>
+<td><%= user.realname %></td>
+<% end %>
+<td><%= comp.groups_id.to_s %></td>
+<% GlpiComputers.all( :name => comp.name).GlpiGroups.each do |group| %>
+<td><%= group.name %></td>
+<% end %>
+<td><%= comp.locations_id %></td>
+<% GlpiComputers.all( :name => comp.name).GlpiLocations.each do |location| %>
+<td><%= location.completename %></td>
+<% end %>
+<% str = 'SELECT SUM(specificity) FROM glpi_computers_deviceharddrives WHERE (computers_id = ' + comp.id.to_s + ')' %>
+<td><%= DataMapper.repository.adapter.select(str)[0].to_i %></td>
+<% str = 'SELECT SUM(specificity) FROM glpi_computers_devicememories WHERE (computers_id = ' + comp.id.to_s + ')' %>
+<td><%= DataMapper.repository.adapter.select(str)[0].to_i %></td>
+<% GlpiComputers.all( :name => comp.name).GlpiComputersDevicemotherboards.each do |mobo_id| %>
+<td><%= mobo_id.devicemotherboards_id %></td>
+<% GlpiComputersDevicemotherboards.all( :devicemotherboards_id => mobo_id.devicemotherboards_id).GlpiDevicemotherboards.each do |mobo| %>
+<td><%= mobo.designation %></td>
+<% end %>
+<% end %>
+<% GlpiComputers.all( :name => comp.name).GlpiComputersDeviceprocessors.each do |cpu_id| %>
+<td><%= cpu_id.deviceprocessors_id %></td>
+<% GlpiComputersDeviceprocessors.all( :deviceprocessors_id => cpu_id.deviceprocessors_id).GlpiDeviceprocessors.each do |cpu| %>
+<td><%= cpu.designation %></td>
+<% end %>
+<% end %>
+<% GlpiComputers.all( :id => comp.id).GlpiComputersItems.all( :itemtype => 'Monitor' ).each do |lcd_id| %>
+<% lcd_id.items_id %>
+<% GlpiMonitors.all(:id => lcd_id.items_id ).each do |lcd| %>
+<td><%= lcd.name %></td>
+<% end %>
+<% end %>
+</tr>
+<% end %>
+</table>

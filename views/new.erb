@@ -1,0 +1,68 @@
+<p>"Сегодня <%= Time.now.strftime("%Y-%d-%m %H:%M:%S") %>"</p>
+
+<table>
+	<tr>
+		<th>#</th>
+		<th>name</th>
+		<th>users</th>
+		<th>groups</th>
+		<th>date_mod</th>
+		<th>mobo_name</th>
+		<th>cpu_name</th>
+		<th>ram_size</th>
+		<th>hdd_size</th>
+		<th>pc_price</th>
+		<th>display</th>
+		<th>lcd_price</th>
+	</tr>
+	<% @numb = 0 %>
+	<% @glpi_comp.each do |comp| %>
+	<% @numb = @numb + 1 %>
+	<% @pc_name = comp.name %>
+	<% GlpiComputers.all( :id => comp.id).GlpiComputersItems.all( :itemtype => 'Monitor' ).each do |lcd_id| %>
+		<% GlpiMonitors.all(:id => lcd_id.items_id ).each do |lcd| %>
+			<% @monitor = lcd.name%>
+		<% end %>
+	<% end %>
+	<% GlpiComputers.all( :name => comp.name).GlpiUsers.each do |user| %>
+		<% @user_name = user.realname %>
+	<% end %>
+	<% GlpiComputers.all( :name => comp.name).GlpiGroups.each do |group| %>
+		<% @group_name = group.name %>
+	<% end %>
+	<% @last_mod_date = comp.date_mod.strftime("%Y-%d-%m %H:%M:%S") %>
+	<% GlpiComputers.all( :name => comp.name).GlpiComputersDevicemotherboards.each do |mobo_id| %>
+		<% GlpiComputersDevicemotherboards.all( :devicemotherboards_id => mobo_id.devicemotherboards_id).GlpiDevicemotherboards.each do |mobo| %>
+			<% @mb_name = mobo.designation %>
+		<% end %>
+	<% end %>
+	<% GlpiComputers.all( :name => comp.name).GlpiComputersDeviceprocessors.each do |cpu_id| %>
+		<% GlpiComputersDeviceprocessors.all( :deviceprocessors_id => cpu_id.deviceprocessors_id).GlpiDeviceprocessors.each do |cpu| %>
+			<% @proc_name = cpu.designation %>
+		<% end %>
+	<% end %>
+	<% str = 'SELECT SUM(specificity) FROM glpi_computers_devicememories WHERE (computers_id = ' + comp.id.to_s + ')' %>
+	<% @mem_size = DataMapper.repository.adapter.select(str)[0].to_i %>
+	<% str = 'SELECT SUM(specificity) FROM glpi_computers_deviceharddrives WHERE (computers_id = ' + comp.id.to_s + ')' %>
+	<% @hdd = DataMapper.repository.adapter.select(str)[0].to_i %>
+	<tr>
+		<td><%= @numb %></td>
+		<td><%= @pc_name %></td>
+		<td><%= @user_name %></td>
+		<% @user_name = ' ' %>
+		<td><%= @group_name %></td>
+		<% @group_name = ' ' %>
+		<td><%= @last_mod_date %></td>
+		<td><%= @mb_name %></td>
+		<% @mb_name = ' ' %>
+		<td><%= @proc_name %></td>
+		<% @proc_name = ' ' %>
+		<td><%= @mem_size %></td>
+		<td><%= @hdd %></td>
+		<td> </td>
+		<td><%= @monitor %></td>
+		<% @monitor = ' '%>
+		<td> </td>
+	</tr>
+	<% end %>
+</table>

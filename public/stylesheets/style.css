@@ -1,0 +1,23 @@
+  BODY {
+   	background: #C0C0C0;
+   	font-size:12px;
+   }
+   TABLE {
+    border-collapse: collapse; /* Убираем двойные линии между ячейками */
+    width: 100%; /* Ширина таблицы */
+   }
+   TH, TD {
+    background: #C0C0C0;
+    border: 1px solid black; /* Параметры рамки */
+    text-align: center; /* Выравнивание по центру */
+    padding: 4px; /* Поля вокруг текста */
+    font-size:12px;
+   }
+   TH {
+    background: #808080; /* Цвет фона ячейки */
+    border: 1px solid black;
+    height: 10px; /* Высота ячеек */
+    vertical-align: bottom; /* Выравнивание по нижнему краю */
+    padding: 0; /* Убираем поля вокруг текста */
+    font-size:12px;
+   }
