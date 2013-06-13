@@ -45,6 +45,9 @@
 	<% @mem_size = DataMapper.repository.adapter.select(str)[0].to_i %>
 	<% str = 'SELECT SUM(specificity) FROM glpi_computers_deviceharddrives WHERE (computers_id = ' + comp.id.to_s + ')' %>
 	<% @hdd = DataMapper.repository.adapter.select(str)[0].to_i %>
+	<% Price.all( :name => @monitor ).each do |mon_price| %>
+		<% @monitor_price = mon_price.price %>
+	<% end %>
 	<tr>
 		<td><%= @numb %></td>
 		<td><%= @pc_name %></td>
@@ -62,7 +65,8 @@
 		<td> </td>
 		<td><%= @monitor %></td>
 		<% @monitor = ' '%>
-		<td> </td>
+		<td><%= @monitor_price %></td>
+		<% @monitor_price = ' '%>
 	</tr>
 	<% end %>
 </table>

@@ -173,7 +173,7 @@ get '/new' do
 end
 
 get '/db_price' do
-	@item_price_print = Price.all
+	@item_price_print = Price.all(:order => [ :name.asc ])
 	erb :db_price
 end
 
