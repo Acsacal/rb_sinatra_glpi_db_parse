@@ -8,8 +8,8 @@ set :bind, '0.0.0.0'
 
 DataMapper::Logger.new(STDOUT, :debug)
 
-DataMapper.setup(:default, 'mysql://glpi:gfhjkm@localhost/glpi')
-#DataMapper.setup(:default, 'mysql://glpi0804:mJq8C7M8WJTZCmCT@195.230.103.3/glpi0804')
+#DataMapper.setup(:default, 'mysql://glpi:gfhjkm@localhost/glpi')
+DataMapper.setup(:default, 'mysql://glpi0804:mJq8C7M8WJTZCmCT@195.230.103.3/glpi0804')
 
 class GlpiComputers
 	include DataMapper::Resource
@@ -172,6 +172,13 @@ get '/new' do
 	erb :new
 end
 
+post '/new' do
+	puts "______________ #{params[:user_name].to_s} ______________"
+	u_name = params[:user_name].to_s
+	@glpi_comp = GlpiComputers.all(:contact.like => "%#{params[:user_name].to_s}%", :computertypes_id => 2, :states_id => 1, :order => [ :date_mod.desc ], :contact.not => ['conference', 'For home use', 'room2', 'room8', 'ConfRoom4'])
+	erb :new
+end
+
 get '/db_price' do
 	@item_price_print = Price.all(:order => [ :name.asc ])
 	erb :db_price
@@ -180,4 +187,9 @@ end
 post '/db_update' do
 	@item = Price.create(:name => params[:name], :price => params[:price].to_i)
   	redirect '/db_price'
+end
+
+get '/db_update/:id/delete' do
+	Price.get(params[:id].to_i).destroy
+	redirect '/db_price'
 end

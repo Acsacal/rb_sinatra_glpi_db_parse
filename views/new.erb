@@ -1,4 +1,16 @@
-<p>"Сегодня <%= Time.now.strftime("%Y-%d-%m %H:%M:%S") %>"</p>
+<form action="/new" method="POST">
+	<center><p>
+		"Today is <%= Time.now.strftime("%Y-%d-%m %H:%M:%S") %>"
+
+		<label for="user_name">
+			Search from name:
+		</label>
+		<input type="text" name="user_name" id="user_name"/>
+
+		<input type="submit" value="Submit">
+		<input type="reset" value="Reset">
+	</p></center>
+</form>
 
 <table>
 	<tr>
@@ -41,6 +53,9 @@
 			<% @proc_name = cpu.designation %>
 		<% end %>
 	<% end %>
+	<% Price.all( :name => @proc_name ).each do |proc_price| %>
+		<% @pc_price = proc_price.price %>
+	<% end %>
 	<% str = 'SELECT SUM(specificity) FROM glpi_computers_devicememories WHERE (computers_id = ' + comp.id.to_s + ')' %>
 	<% @mem_size = DataMapper.repository.adapter.select(str)[0].to_i %>
 	<% str = 'SELECT SUM(specificity) FROM glpi_computers_deviceharddrives WHERE (computers_id = ' + comp.id.to_s + ')' %>
@@ -62,10 +77,11 @@
 		<% @proc_name = ' ' %>
 		<td><%= @mem_size %></td>
 		<td><%= @hdd %></td>
-		<td> </td>
+		<td>$<%= @pc_price %></td>
+		<% @pc_price = ' ' %>
 		<td><%= @monitor %></td>
 		<% @monitor = ' '%>
-		<td><%= @monitor_price %></td>
+		<td>$<%= @monitor_price %></td>
 		<% @monitor_price = ' '%>
 	</tr>
 	<% end %>

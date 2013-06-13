@@ -2,12 +2,20 @@
    	background: #C0C0C0;
    	font-size:12px;
    }
+
+   .header {
+    height:50px;
+    background:#000;
+    width:100%;
+    margin:0px auto;
+    }
+
    TABLE {
     border-collapse: collapse; /* Убираем двойные линии между ячейками */
     width: 100%; /* Ширина таблицы */
    }
    TH, TD {
-    background: #C0C0C0;
+    background:  #FFFFFF;
     border: 1px solid black; /* Параметры рамки */
     text-align: center; /* Выравнивание по центру */
     padding: 4px; /* Поля вокруг текста */

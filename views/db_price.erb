@@ -1,31 +1,35 @@
-<a href="/new"> Return to table </a>
-
 <form action="/db_update" method="POST">
-	<p>
+	<center><p>
+		<p>
+			<a href="/new"> Return to table </a>
+		</p>
+
 		<label for="name">
 			Iteam_name
 		</label>
 		<input type="text" name="name" id="name"/>
-	</p>
-	<p>
+
 		<label for="price">
 				Price in $
 		</label>
 		<input type="number" name="price" id="price"/>
-	</p>
-		<input type="submit" value="Отправить">
-		<input type="reset" value="Очистить">
+	
+		<input type="submit" value="Submit">
+		<input type="reset" value="Reset">
+	</p></center>
 </form>
 
 <table>
 	<tr>
 		<th>Name</th>
 		<th>Price in $</th>
+		<th>Delete item and price</th>
 	</tr>
 	<% @item_price_print.each do |i| %>
 	<tr>
 		<td><%= i.name %></td>
 		<td><%= i.price %></td>
+		<td><a href="/db_update/<%= i.id %>/delete" title="Удалить файл">Delete</a></td>
 	</tr>
 	<% end %>
 </table>
