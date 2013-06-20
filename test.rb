@@ -164,12 +164,12 @@ Price.auto_upgrade!
 
 get '/' do
 	@glpi_comp = GlpiComputers.all(:computertypes_id => 2, :states_id => 1, :order => [ :date_mod.desc ], :contact.not => ['conference', 'For home use', 'room2', 'room8', 'ConfRoom4'])
-	erb :index
+	erb :new
 end
 
 get '/new' do
 	@glpi_comp = GlpiComputers.all(:computertypes_id => 2, :states_id => 1, :order => [ :date_mod.desc ], :contact.not => ['conference', 'For home use', 'room2', 'room8', 'ConfRoom4'])
-	erb :new
+	erb :index
 end
 
 post '/new' do
