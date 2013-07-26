@@ -8,8 +8,7 @@ set :bind, '0.0.0.0'
 
 #DataMapper::Logger.new(STDOUT, :debug)
 
-#DataMapper.setup(:default, 'mysql://glpi:gfhjkm@localhost/glpi')
-DataMapper.setup(:default, 'mysql://glpi0804:mJq8C7M8WJTZCmCT@195.230.103.3/glpi0804')
+DataMapper.setup(:default, 'mysql://glpi:passwd@localhost/glpi')
 
 class GlpiComputers
 	include DataMapper::Resource

@@ -614,3 +614,94 @@ Errno::ENOENT - No such file or directory - /home/user/rb_stud/glpi_test_app/con
 192.168.0.200 - - [20/Jun/2013 17:39:53] "GET / HTTP/1.1" 200 85084 9.3120
 192.168.0.200 - - [20/Jun/2013 17:40:03] "GET /new HTTP/1.1" 200 76582 10.4949
 192.168.0.200 - - [20/Jun/2013 17:40:03] "GET /stylesheets/style.css HTTP/1.1" 304 - 0.0031
+>> Writing PID to ./tmp/thin.pid
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:8080, CTRL+C to stop
+192.168.0.200 - - [03/Jul/2013 10:57:32] "GET / HTTP/1.1" 200 86973 9.2737
+192.168.0.200 - - [03/Jul/2013 10:57:32] "GET /stylesheets/style.css HTTP/1.1" 200 - 0.0379
+192.168.0.200 - - [03/Jul/2013 10:57:32] "GET /images/favicon.ico HTTP/1.1" 200 - 0.0156
+192.168.0.200 - - [03/Jul/2013 11:03:49] "GET / HTTP/1.1" 200 87035 8.9123
+192.168.0.200 - - [03/Jul/2013 11:03:50] "GET /stylesheets/style.css HTTP/1.1" 304 - 0.0008
+192.168.10.14 - - [03/Jul/2013 11:05:35] "GET / HTTP/1.1" 200 87035 9.1474
+192.168.10.14 - - [03/Jul/2013 11:05:35] "GET /stylesheets/style.css HTTP/1.1" 200 - 0.0006
+192.168.10.14 - - [03/Jul/2013 11:05:36] "GET /images/favicon.ico HTTP/1.1" 200 - 0.0006
+192.168.0.200 - - [03/Jul/2013 14:48:34] "GET / HTTP/1.1" 200 87035 11.5846
+192.168.10.14 - - [03/Jul/2013 17:28:52] "GET / HTTP/1.1" 200 87035 10.4086
+192.168.10.14 - - [03/Jul/2013 17:30:37] "GET / HTTP/1.1" 200 87035 9.9975
+!! Invalid request
+!! Invalid request
+192.168.0.200 - - [05/Jul/2013 11:57:00] "GET / HTTP/1.1" 200 85945 11.4522
+192.168.0.200 - - [05/Jul/2013 11:57:01] "GET /stylesheets/style.css HTTP/1.1" 304 - 0.0178
+192.168.0.200 - - [05/Jul/2013 11:57:39] "POST /new HTTP/1.1" 200 1601 0.0968
+192.168.0.200 - - [05/Jul/2013 11:57:56] "POST /new HTTP/1.1" 200 85929 10.4653
+192.168.0.200 - - [05/Jul/2013 11:58:43] "POST /new HTTP/1.1" 200 1194 0.0064
+192.168.0.200 - - [05/Jul/2013 11:58:56] "POST /new HTTP/1.1" 200 1545 0.0507
+192.168.0.200 - - [05/Jul/2013 11:59:12] "GET /db_price HTTP/1.1" 200 15288 0.0298
+192.168.0.200 - - [05/Jul/2013 11:59:27] "POST /db_update HTTP/1.1" 303 - 0.1348
+192.168.0.200 - - [05/Jul/2013 11:59:27] "GET /db_price HTTP/1.1" 200 15433 0.0219
+192.168.0.200 - - [05/Jul/2013 11:59:39] "GET / HTTP/1.1" 200 86290 10.1954
+192.168.0.200 - - [05/Jul/2013 12:11:28] "POST /new HTTP/1.1" 200 1194 0.0106
+192.168.0.200 - - [05/Jul/2013 12:11:33] "POST /new HTTP/1.1" 200 1984 0.1008
+192.168.0.200 - - [08/Jul/2013 13:33:10] "GET / HTTP/1.1" 200 86591 10.4382
+192.168.0.200 - - [08/Jul/2013 13:33:11] "GET /stylesheets/style.css HTTP/1.1" 304 - 0.0005
+192.168.0.200 - - [08/Jul/2013 13:34:06] "GET / HTTP/1.1" 200 86624 10.6072
+192.168.0.200 - - [08/Jul/2013 13:34:06] "GET /stylesheets/style.css HTTP/1.1" 304 - 0.0007
+192.168.0.200 - - [10/Jul/2013 12:51:48] "GET / HTTP/1.1" 200 87414 9.9510
+192.168.0.200 - - [10/Jul/2013 12:51:48] "GET /stylesheets/style.css HTTP/1.1" 304 - 0.0008
+192.168.0.200 - - [10/Jul/2013 12:51:48] "GET /images/favicon.ico HTTP/1.1" 304 - 0.0006
+192.168.10.14 - - [10/Jul/2013 13:15:33] "GET / HTTP/1.1" 200 87414 9.4501
+192.168.10.14 - - [10/Jul/2013 13:15:33] "GET /stylesheets/style.css HTTP/1.1" 200 - 0.0007
+192.168.10.14 - - [10/Jul/2013 13:15:33] "GET /images/favicon.ico HTTP/1.1" 200 - 0.0237
+>> Writing PID to ./tmp/thin.pid
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:8080, CTRL+C to stop
+192.168.0.200 - - [11/Jul/2013 14:22:27] "GET / HTTP/1.1" 200 87829 9.4447
+192.168.0.200 - - [11/Jul/2013 14:22:27] "GET /stylesheets/style.css HTTP/1.1" 200 - 0.0151
+192.168.0.200 - - [11/Jul/2013 14:22:28] "GET /images/favicon.ico HTTP/1.1" 200 - 0.0188
+192.168.0.200 - - [11/Jul/2013 14:23:58] "GET / HTTP/1.1" 200 87773 9.6309
+192.168.0.200 - - [11/Jul/2013 14:23:58] "GET /stylesheets/style.css HTTP/1.1" 304 - 0.0007
+>> Exiting!
+/home/koryakin/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/builder.rb:133:in `to_app': missing run or map statement (RuntimeError)
+	from ./config/config.ru:6:in `<main>'
+	from /home/koryakin/.rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `eval'
+	from /home/koryakin/.rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `load'
+	from /home/koryakin/.rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/controllers/controller.rb:181:in `load_rackup_config'
+	from /home/koryakin/.rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/controllers/controller.rb:71:in `start'
+	from /home/koryakin/.rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/runner.rb:187:in `run_command'
+	from /home/koryakin/.rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/runner.rb:152:in `run!'
+	from /home/koryakin/.rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/bin/thin:6:in `<top (required)>'
+	from /home/koryakin/.rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `load'
+	from /home/koryakin/.rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `<main>'
+	from /home/koryakin/.rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `eval'
+	from /home/koryakin/.rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `<main>'
+>> Writing PID to ./tmp/thin.pid
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:8080, CTRL+C to stop
+192.168.0.200 - - [12/Jul/2013 10:35:52] "GET / HTTP/1.1" 200 87773 10.2120
+192.168.0.200 - - [12/Jul/2013 10:35:53] "GET /stylesheets/style.css HTTP/1.1" 200 - 0.0163
+192.168.0.200 - - [12/Jul/2013 10:35:53] "GET /images/favicon.ico HTTP/1.1" 200 - 0.0285
+192.168.10.14 - - [16/Jul/2013 15:20:30] "GET / HTTP/1.1" 200 87779 9.5984
+192.168.10.14 - - [16/Jul/2013 15:20:30] "GET /stylesheets/style.css HTTP/1.1" 200 - 0.0182
+192.168.10.14 - - [16/Jul/2013 15:20:31] "GET /images/favicon.ico HTTP/1.1" 200 - 0.0097
+192.168.10.2 - - [16/Jul/2013 15:21:18] "GET / HTTP/1.1" 200 87779 8.9386
+192.168.10.2 - - [16/Jul/2013 15:21:18] "GET /stylesheets/style.css HTTP/1.1" 200 - 0.0005
+192.168.10.2 - - [16/Jul/2013 15:21:18] "GET /images/favicon.ico HTTP/1.1" 200 - 0.0007
+192.168.0.200 - - [19/Jul/2013 09:36:52] "GET / HTTP/1.1" 200 88061 10.7705
+192.168.0.200 - - [19/Jul/2013 09:36:53] "GET /stylesheets/style.css HTTP/1.1" 200 - 0.0216
+192.168.0.200 - - [19/Jul/2013 09:36:53] "GET /images/favicon.ico HTTP/1.1" 200 - 0.0104
+192.168.0.200 - - [19/Jul/2013 09:40:01] "GET / HTTP/1.1" 200 87721 9.1700
+192.168.0.200 - - [19/Jul/2013 09:40:01] "GET /stylesheets/style.css HTTP/1.1" 304 - 0.0005
+192.168.0.200 - - [19/Jul/2013 09:41:07] "GET / HTTP/1.1" 200 87363 9.1109
+192.168.0.200 - - [19/Jul/2013 09:41:07] "GET /stylesheets/style.css HTTP/1.1" 304 - 0.0007
+192.168.0.200 - - [19/Jul/2013 09:42:23] "GET / HTTP/1.1" 200 86654 9.1551
+192.168.0.200 - - [19/Jul/2013 09:42:23] "GET /stylesheets/style.css HTTP/1.1" 304 - 0.0005
+192.168.0.200 - - [23/Jul/2013 11:12:31] "GET / HTTP/1.1" 200 86320 10.0651
+192.168.0.200 - - [23/Jul/2013 11:12:31] "GET /stylesheets/style.css HTTP/1.1" 304 - 0.0482
+192.168.0.200 - - [23/Jul/2013 11:15:57] "GET / HTTP/1.1" 200 86297 8.8835
+192.168.0.200 - - [23/Jul/2013 11:15:57] "GET /stylesheets/style.css HTTP/1.1" 304 - 0.0007
+192.168.0.200 - - [26/Jul/2013 09:48:04] "GET / HTTP/1.1" 200 86297 9.1049
+192.168.0.200 - - [26/Jul/2013 09:48:04] "GET /stylesheets/style.css HTTP/1.1" 200 - 0.0632
+192.168.0.200 - - [26/Jul/2013 09:48:04] "GET /images/favicon.ico HTTP/1.1" 200 - 0.0105
